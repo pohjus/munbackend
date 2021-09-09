@@ -52,7 +52,7 @@ app.post("/customers", (req, res) => {
   let body = req.body;
   body.id = lastIndex++;
   db.push(body);
-  res.status(201).json(body);
+  res.status(201).send(body);
 });
 
 app.listen(port, () => {
