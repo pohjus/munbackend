@@ -3,8 +3,6 @@ const app = express();
 
 const port = process.env.PORT || 8080;
 
-// näytä palvelimella sellaisenaan kaikki
-// tiedostot jotka löytyy hakemistosta public
 app.use(express.static("public"));
 
 let db = [
