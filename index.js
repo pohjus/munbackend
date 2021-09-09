@@ -1,11 +1,19 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 8080
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 8080;
 
-app.get('/', (req, res) => {
-  res.send('jeppe')
-})
+// näytä palvelimella sellaisenaan kaikki
+// tiedostot jotka löytyy hakemistosta public
+app.use(express.static("public"));
+
+let db = [
+  { id: 1, name: "jack" },
+  { id: 2, name: "tiina" },
+];
+app.get("/customers", (req, res) => {
+  res.send(db);
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+  console.log(`Example app listening at http://localhost:${port}`);
+});

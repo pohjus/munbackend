@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Page</title>
+</head>
+
+<body>
+    <h1>Customers</h1>
+
+    <ul></ul>
+
+    <script>
+
+        const main = async () => {
+            let hr = await fetch("/customers")
+            let people = await hr.json()
+
+            let lis = people.map(person => `<li>${person.name}</li>`)
+            document.querySelector("ul").innerHTML = lis.join("")
+        }
+
+        main()
+    </script>
+</body>
+
+</html>
